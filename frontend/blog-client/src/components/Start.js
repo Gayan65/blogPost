@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import imgOne from "../images/imgStart.jpg";
+import NavBar from "./NavBar";
 
 function Start() {
 
@@ -9,6 +10,8 @@ function Start() {
     }, []);
 
     return (
+        <div>
+            <NavBar auth = {false}/>
         <div className="container-fluid body-custom-css">
             <div className="container body-custom-css">
             <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -25,6 +28,7 @@ function Start() {
                 </div>
             </div>
             </div>
+        </div>
         </div>
     )
 }

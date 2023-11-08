@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Blogs from "./Blogs";
+import NavBar from "./NavBar";
 
 function Home() {
     const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Home() {
 
     return(
         <div>
-            <h1>Welcome to the home page {userObj.username}</h1>
+            <NavBar auth = {true} user = {userObj.username} />
             <Link to={'/login'}>Logout</Link>
             <Blogs />
             <Link to={'/user/blogs'}>My Blogs</Link>

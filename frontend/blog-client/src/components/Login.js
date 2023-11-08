@@ -3,6 +3,7 @@ import axios from "axios";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
 import login from "../images/login.jpg";
+import NavBar from "./NavBar";
 
 function Login() {
 
@@ -38,6 +39,8 @@ function Login() {
     }
 
     return (
+        <div>
+            <NavBar auth = {false}/>
         <div className="body-custom-css">
             <div className="col-10 col-sm-8 col-lg-6 m-auto">
                 <img src={login} className="d-block mx-lg-auto img-fluid pt-5" alt="Bootstrap Themes" width="500" height="300" loading="lazy" />
@@ -65,6 +68,7 @@ function Login() {
                     </form>
                 </main>
             </div>
+        </div>
         </div>
     )
 }

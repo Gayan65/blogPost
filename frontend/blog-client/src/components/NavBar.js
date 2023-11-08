@@ -1,10 +1,10 @@
 import React from "react";
 import '../styles/main.css';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
-function NavBar() {
+function NavBar(props) {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-custom">
             <div className="container">
@@ -24,12 +24,27 @@ function NavBar() {
                             <a className="nav-link active nav-link-custom-other" aria-current="page" href="/products">Products</a>
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
+                    {props.auth ? <form className="d-flex" role="search">     <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul className="navbar-nav">
+                            <li className="nav-item dropdown">
+                                <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {props.user}
+                                </button>
+                                <ul className="dropdown-menu dropdown-menu-dark">
+                                    <li> <Link className="dropdown-item" to={'/user/blogs'}> My blogs </Link> </li>
+                                    <li> <Link className="dropdown-item" to={'/user/blogs'}> Profile </Link></li>
+                                    <li> <Link className="dropdown-item" to={'/user/create_blog'}> Create blog </Link> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div> </form> : <form className="d-flex" role="search">
                         <Link className="btn btn-outline-success navbar-btn" to={'/login'}>Sign in</Link>
-                    </form>
-                    <form className="d-flex" role="search">
                         <Link className="btn btn-outline-success navbar-btn" to={'/register'}>Register</Link>
-                    </form>
+                    </form>}
+
+
+
+
                 </div>
             </div>
         </nav>

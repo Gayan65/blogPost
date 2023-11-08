@@ -7,17 +7,13 @@ import UserBlog from "./UserBlog";
 import CreateBlog from "./CreateBlog";
 import Blog from "./Blog";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import NavBar from "./NavBar";
 import AboutUs from "./AboutUs";
 import Products from "./Products";
 import Footer from "./Footer";
 
-
-
 function App() {
     return (<div>
         <BrowserRouter>
-        <NavBar />
             <Routes>
                 <Route path="/" element = {<Start />}></Route>
                 <Route path="/login" element = {<Login />}></Route>

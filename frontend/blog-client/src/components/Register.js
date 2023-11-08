@@ -3,10 +3,11 @@ import axios from "axios";
 import qs from "qs";
 import { useNavigate } from "react-router-dom";
 import register from "../images/register.jpg";
+import NavBar from "./NavBar";
 
 
 function Register() {
-//Use state hook
+    //Use state hook
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [fname, setFname] = useState("");
@@ -48,6 +49,7 @@ function Register() {
 
     return (
         <div>
+            <NavBar auth={false} />
             <div className="body-custom-css">
                 <div className="col-10 col-sm-8 col-lg-6 m-auto">
                     <img src={register} className="d-block mx-lg-auto img-fluid pt-5" alt="Bootstrap Themes" width="500" height="300" loading="lazy" />
