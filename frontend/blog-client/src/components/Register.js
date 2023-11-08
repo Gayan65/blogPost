@@ -8,6 +8,8 @@ function Register() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [fname, setFname] = useState("");
+    const [nickName, setNickName] = useState("");
 
     useEffect(() => {
         sessionStorage.clear();
@@ -19,7 +21,10 @@ function Register() {
         event.preventDefault();
         const data = qs.stringify({
             'username' : username,
-            'password' : password
+            'password' : password,
+            'fname': fname,
+            'createDate':new Date(),
+            'nickName':nickName
         });
         await axios.post( 'http://localhost:4000/user/create', data)
         .then(response => {
@@ -41,7 +46,9 @@ function Register() {
             <h1>Register Page</h1>
             <form onSubmit={handleSubmit} method="POST">
                 <input onChange={(e) => setUsername(e.target.value)} type="text" name="username" required placeholder="Username" value={username}/>
-                <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" required placeholder="Password" value={password}/>
+                <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" autoComplete="on" required placeholder="Password" value={password}/>
+                <input onChange={(e) => setFname(e.target.value)} type="text" name="fname" required placeholder="Full Name" value={fname}/>
+                <input onChange={(e) => setNickName(e.target.value)} type="text" name="nickName" required placeholder="Nick Name" value={nickName}/>
                 <button type="submit">Register</button>
             </form>
         </div>
