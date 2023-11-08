@@ -8,6 +8,7 @@ function Blogs() {
     useEffect(() => {
         axios.get('http://localhost:4000/blogs/all')
             .then(response => {
+                //Edited here
                 if (response.data.success) {
                     console.log(response.data.blogs)
                     setBlogs(response.data.blogs)
