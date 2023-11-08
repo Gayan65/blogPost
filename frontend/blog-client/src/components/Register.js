@@ -6,7 +6,7 @@ import register from "../images/register.jpg";
 
 
 function Register() {
-
+//Use state hook
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [fname, setFname] = useState("");
