@@ -66,8 +66,6 @@ function CreateBlog() {
                     </main>
                 </div>
             </div>
-
-
         </div>
     );
 }
