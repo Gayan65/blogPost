@@ -7,7 +7,7 @@ function CreateBlog() {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const user = sessionStorage.getItem('user');
+    let user = sessionStorage.getItem('user');
     const navigate = useNavigate();
 
     useEffect(() => {

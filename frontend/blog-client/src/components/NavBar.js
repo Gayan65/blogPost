@@ -34,6 +34,8 @@ function NavBar(props) {
                                     <li> <Link className="dropdown-item" to={'/user/blogs'}> My blogs </Link> </li>
                                     <li> <Link className="dropdown-item" to={'/user/blogs'}> Profile </Link></li>
                                     <li> <Link className="dropdown-item" to={'/user/create_blog'}> Create blog </Link> </li>
+                                    <li> <Link className="dropdown-item" to={'/login'}> Logout </Link> </li>
+
                                 </ul>
                             </li>
                         </ul>
