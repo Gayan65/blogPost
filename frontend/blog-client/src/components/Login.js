@@ -63,7 +63,7 @@ function Login() {
                                 Remember me
                             </label>
                         </div>
-                        <button className="btn btn-primary w-100 py-2 login-btn" type="submit">Sign in</button>
+                        <button className="button-22" type="submit">Sign in</button>
                         {apiResponse.success === false && <div className="alert alert-danger mt-3" role="alert"> {apiResponse.message} </div>}
                     </form>
                 </main>
