@@ -11,7 +11,7 @@ function UserBlog() {
 
     const [blogs, setBlogs] = useState([]);
     const user = sessionStorage.getItem('user');
-    
+
     useEffect(() => {
         if (user === '' || user === null) {
             navigate('/login');
@@ -44,34 +44,25 @@ function UserBlog() {
 
     return (
         <div>
-            <NavBar auth = {true} user = { auth ? userObj.username : null} />
-            <ul>
-                {blogs.length > 0 ? blogs.map((blog) => (
-                    <li key={blog._id}> <Link to={'/blog'} state={blog}> {blog.title}  {blog.content} </Link> </li>
-                )) : <li> No blogs to display </li>}
-            </ul>
-
-
-
-
+            <NavBar auth={true} user={auth ? userObj.username : null} />
             <div className="container-fluid body-custom-css">
-            <div className="container">
-                <div className="row row-cols-1 row-cols-md-3 g-4">
-                    {blogs.length > 0 ? blogs.map((blog) =>
-                        <div key={blog._id} className="col"> <Link to={'/blog'} state={blog}>
-                            <div className="card border-success mb-3" style={{ maxWidth: '18rem' }}>
-                                <div className="card-header bg-transparent border-success">From {blog.user.username} </div>
-                                <div className="card-body text-success">
-                                    <h5 className="card-title">{blog.title} </h5>
-                                    <p className="card-text"> {blog.content} </p>
-                                </div>
-                                <div className="card-footer bg-transparent border-success">Footer</div>
-                            </div> </Link>
-                        </div>
-                    ) : <li> No blogs to display </li>}
+                <div className="container">
+                    <div className="row row-cols-1 row-cols-md-3 g-4">
+                        {blogs.length > 0 ? blogs.map((blog) =>
+                            <div key={blog._id} className="col"> <Link to={'/blog'} state={blog}>
+                                <div className="card border-success mb-3" style={{ maxWidth: '18rem' }}>
+                                    <div className="card-header bg-transparent border-success">From {blog.user.username} </div>
+                                    <div className="card-body text-success">
+                                        <h5 className="card-title">{blog.title} </h5>
+                                        <p className="card-text"> {blog.content} </p>
+                                    </div>
+                                    <div className="card-footer bg-transparent border-success">Footer</div>
+                                </div> </Link>
+                            </div>
+                        ) : <li> No blogs to display </li>}
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     );
 }
