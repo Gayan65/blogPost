@@ -19,7 +19,6 @@ function Home() {
         }
         // eslint-disable-next-line
     }, []);
-//canged
     const userObj = JSON.parse(user)
 
     return(
