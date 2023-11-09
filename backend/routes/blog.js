@@ -36,7 +36,7 @@ blog_router.post('/blog/save', async (req, res) => {
 blog_router.post('/blogs/user', async (req, res) => {
     try {
         const user = req.body.userId;
-        await Blog.find({ user: user }).then((blogs) => {
+        await Blog.find({ user: user }).populate('user').then((blogs) => {
             if (blogs.length <= 0) {
                 return res.status(200).json({
                     success: false,
