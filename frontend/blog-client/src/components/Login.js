@@ -51,8 +51,8 @@ function Login() {
                             <input type="text" className="input-normal" placeholder="Email" onChange={e => setUsername(e.target.value)} name="username" value={username} required />
                             <input type="password" className="input-normal" autoComplete="on" placeholder="Password" onChange={e => setPassword(e.target.value)} name="password" value={password} required />
                             <button className="button-start" type="submit">Sign in</button>
-                            {apiResponse.success === false && <div className="alert alert-danger mt-3" role="alert"> {apiResponse.message} </div>}
                         </form>
+                        {apiResponse.success === false && <div className="alert alert-danger mt-3" role="alert"> {apiResponse.message} </div>}
                 </div>
             </div>
         </div>
