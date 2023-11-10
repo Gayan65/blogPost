@@ -57,24 +57,12 @@ function Register() {
                 <div className="container my-auto">
                     <main className="form-signin w-100 mx-auto">
                         <form method="POST" onSubmit={handleSubmit}>
-                            <h1 className="h3 mb-3 fw-normal">Please Signup</h1>
-                            <div className="form-floating">
-                                <input type="text" className="form-control mb-3 input-custom-css" placeholder="name@example.com" onChange={(e) => setUsername(e.target.value)} name="username" required value={username} />
-                                <label htmlFor="floatingInput">Email address</label>
-                            </div>
-                            <div className="form-floating">
-                                <input type="text" className="form-control mb-3 input-custom-css" autoComplete="on" placeholder="Password" onChange={(e) => setFname(e.target.value)} name="fname" required value={fname} />
-                                <label htmlFor="floatingPassword">Full Name</label>
-                            </div>
-                            <div className="form-floating">
-                                <input type="text" className="form-control mb-3 input-custom-css" autoComplete="on" placeholder="Password" onChange={(e) => setNickName(e.target.value)} name="nickName" required value={nickName} />
-                                <label htmlFor="floatingPassword">Nick Name</label>
-                            </div>
-                            <div className="form-floating">
-                                <input type="password" className="form-control mb-3 input-custom-css" autoComplete="on" placeholder="Password" onChange={(e) => setPassword(e.target.value)} name="password" required value={password} />
-                                <label htmlFor="floatingPassword">Password</label>
-                            </div>
-                            <button className="btn btn-primary w-100 py-2 login-btn" type="submit">Register</button>
+                            <h1 className="form-heading">Please Signup</h1>
+                                <input type="text" className="input-normal" autoComplete="on" placeholder="Email" onChange={(e) => setUsername(e.target.value)} name="username" required value={username} />
+                                <input type="text" className="input-normal" autoComplete="on" placeholder="Full Name" onChange={(e) => setFname(e.target.value)} name="fname" required value={fname} />
+                                <input type="text" className="input-normal" autoComplete="on" placeholder="Nick Name" onChange={(e) => setNickName(e.target.value)} name="nickName" required value={nickName} />
+                                <input type="password" className="input-normal" autoComplete="on" placeholder="Password" onChange={(e) => setPassword(e.target.value)} name="password" required value={password} />
+                            <button className="button-start" type="submit">Register</button>
                             {apiResponse.success === false && <div className="alert alert-danger mt-3" role="alert"> {apiResponse.message} </div>}
                         </form>
                     </main>

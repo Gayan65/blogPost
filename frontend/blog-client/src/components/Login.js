@@ -40,35 +40,21 @@ function Login() {
 
     return (
         <div>
-            <NavBar auth = {false}/>
-        <div className="body-custom-css">
-            <div className="col-10 col-sm-8 col-lg-6 m-auto">
-                <img src={login} className="d-block mx-lg-auto img-fluid pt-5" alt="Bootstrap Themes" width="500" height="300" loading="lazy" />
+            <NavBar auth={false} />
+            <div className="box-login">
+                <div className="image-login">
+                    <img src={login} className="d-block mx-lg-auto img-fluid pt-5" alt="Bootstrap Themes" width="500" height="300" loading="lazy" />
+                </div>
+                <div className="form-login">
+                        <form method="POST" onSubmit={handleLogin}>
+                            <h1 className="form-heading">Please sign in</h1>
+                            <input type="text" className="input-normal" placeholder="Email" onChange={e => setUsername(e.target.value)} name="username" value={username} required />
+                            <input type="password" className="input-normal" autoComplete="on" placeholder="Password" onChange={e => setPassword(e.target.value)} name="password" value={password} required />
+                            <button className="button-start" type="submit">Sign in</button>
+                            {apiResponse.success === false && <div className="alert alert-danger mt-3" role="alert"> {apiResponse.message} </div>}
+                        </form>
+                </div>
             </div>
-            <div className="container my-auto">
-                <main className="form-signin w-100 mx-auto">
-                    <form method="POST" onSubmit={handleLogin}>
-                        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
-                        <div className="form-floating">
-                            <input type="text" className="form-control mb-3 input-custom-css" id="floatingInput" placeholder="name@example.com" onChange={e => setUsername(e.target.value)} name="username" value={username} required />
-                            <label htmlFor="floatingInput">Email address</label>
-                        </div>
-                        <div className="form-floating">
-                            <input type="password" className="form-control mb-3 input-custom-css" id="floatingPassword" autoComplete="on" placeholder="Password" onChange={e => setPassword(e.target.value)} name="password" value={password} required />
-                            <label htmlFor="floatingPassword">Password</label>
-                        </div>
-                        <div className="form-check text-start my-3">
-                            <input className="form-check-input mb-3" type="checkbox" value="remember-me" id="flexCheckDefault" />
-                            <label className="form-check-label" htmlFor="flexCheckDefault">
-                                Remember me
-                            </label>
-                        </div>
-                        <button className="button-22" type="submit">Sign in</button>
-                        {apiResponse.success === false && <div className="alert alert-danger mt-3" role="alert"> {apiResponse.message} </div>}
-                    </form>
-                </main>
-            </div>
-        </div>
         </div>
     )
 }
