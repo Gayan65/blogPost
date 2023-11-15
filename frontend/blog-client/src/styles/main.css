@@ -1,0 +1,24 @@
+element {
+}
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+.m-auto {
+  margin: auto !important;
+}
+.w-100 {
+  width: 100% !important;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+}
+
+.body-custom-css {
+  height: 100vh !important;
+}
