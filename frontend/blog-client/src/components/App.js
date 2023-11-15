@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AboutUs from "./AboutUs";
 import Products from "./Products";
 import Footer from "./Footer";
+import ViewBlog from "./ViewBlog";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/blog" element={<Blog />}></Route>
           <Route path="/about_us" element={<AboutUs />}></Route>
           <Route path="/products" element={<Products />}></Route>
+          <Route path="/view_blog" element={<ViewBlog />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />

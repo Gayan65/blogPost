@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
@@ -29,7 +30,12 @@ function Blogs() {
                   <h5 className="card-title">{blog.title} </h5>
                   <p className="card-text"> {blog.content} </p>
                 </div>
-                <div className="card-footer">Footer</div>
+                <div className="card-footer">
+                  Footer{" "}
+                  <Link to={"/view_blog"} state={blog}>
+                    View
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
