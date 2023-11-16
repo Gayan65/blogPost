@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import axios from "axios";
-import qs from "qs";
 
 function ViewBlog() {
   const navigate = useNavigate();
@@ -29,7 +28,6 @@ function ViewBlog() {
           .then((response) => {
             setBlog(response.data.blog[0]);
             setBlogUser(response.data.blog[0].user.username);
-            console.log(response.data.blog[0].user.username);
           });
       } else {
         //Navigate to home
@@ -41,10 +39,14 @@ function ViewBlog() {
   return (
     <div>
       <NavBar auth={true} user={auth ? userObj.username : null} />
-      <div>
-        Title : {blog.title}
-        Content: {blog.content}
-        User: {blogUser}
+      <div className="ms-4 mt-5 ">
+        <div className="card" style={{ width: "18rem" }}>
+          <div className="card-body">
+            <h5 className="card-title">{blog.title}</h5>
+            <p className="card-text">{blog.content}</p>
+          </div>
+          <div className="card-footer">{blogUser}</div>
+        </div>
       </div>
     </div>
   );
