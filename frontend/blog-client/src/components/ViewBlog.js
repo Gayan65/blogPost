@@ -30,7 +30,7 @@ function ViewBlog() {
             setBlogUser(response.data.blog[0].user.username);
           });
       } else {
-        //Navigate to home
+        navigate("/home");
       }
     }
     // eslint-disable-next-line

@@ -57,7 +57,7 @@ function NavBar(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to={"/user/blogs"}>
+                  <Link className="dropdown-item" to={"/profile"}>
                     Profile
                   </Link>
                 </li>

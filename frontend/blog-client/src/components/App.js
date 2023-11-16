@@ -11,6 +11,7 @@ import AboutUs from "./AboutUs";
 import Products from "./Products";
 import Footer from "./Footer";
 import ViewBlog from "./ViewBlog";
+import Profile from "./Profile";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/about_us" element={<AboutUs />}></Route>
           <Route path="/products" element={<Products />}></Route>
           <Route path="/view_blog" element={<ViewBlog />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />
