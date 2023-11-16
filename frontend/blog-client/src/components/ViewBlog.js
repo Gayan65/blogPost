@@ -9,6 +9,7 @@ function ViewBlog() {
   const [auth, setAuth] = useState(false);
   const [userObj, setUserObj] = useState({});
   const [blog, setBlog] = useState({});
+  const [blogUser, setBlogUser] = useState();
   let { state } = useLocation();
 
   //const [blogs, setBlogs] = useState([]);
@@ -23,13 +24,12 @@ function ViewBlog() {
       const userObj = JSON.parse(currentUser);
       setUserObj(userObj);
       if (state) {
-        const data = qs.stringify({
-          userId: "65456e79ba85a9e0c9d1cdb9",
-        });
         axios
-          .post("http://localhost:4000/blogs/user", data)
+          .get(`http://localhost:4000/blog/${state._id}`)
           .then((response) => {
-            console.log(response);
+            setBlog(response.data.blog[0]);
+            setBlogUser(response.data.blog[0].user.username);
+            console.log(response.data.blog[0].user.username);
           });
       } else {
         //Navigate to home
@@ -42,8 +42,9 @@ function ViewBlog() {
     <div>
       <NavBar auth={true} user={auth ? userObj.username : null} />
       <div>
-        Title : {blog._id}
+        Title : {blog.title}
         Content: {blog.content}
+        User: {blogUser}
       </div>
     </div>
   );
