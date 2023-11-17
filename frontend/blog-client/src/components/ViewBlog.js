@@ -9,6 +9,7 @@ function ViewBlog() {
   const [userObj, setUserObj] = useState({});
   const [blog, setBlog] = useState({});
   const [blogUser, setBlogUser] = useState();
+  const [comments, setComments] = useState([]);
   let { state } = useLocation();
 
   //const [blogs, setBlogs] = useState([]);
@@ -28,6 +29,10 @@ function ViewBlog() {
           .then((response) => {
             setBlog(response.data.blog[0]);
             setBlogUser(response.data.blog[0].user.username);
+            if (response.data.blog[0].comment.length > 0) {
+              setComments(response.data.blog[0].comment);
+              console.log(response.data.blog[0].comment); // Have to go from here, I think need to implement a map function here to push the data to setComment and then it can be extracted from comment.
+            }
           });
       } else {
         navigate("/home");
