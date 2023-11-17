@@ -64,6 +64,7 @@ blog_router.get("/blogs/all", async (req, res) => {
   try {
     await Blog.find()
       .populate("user")
+      .populate("comment")
       .then((blogs) => {
         if (blogs.length <= 0) {
           res.status(200).json({

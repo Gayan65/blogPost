@@ -1,5 +1,6 @@
 import express from "express";
 import { Comment } from "../schemas/Comment.js";
+import { Blog } from "../schemas/Blog.js";
 import bodyParser from "body-parser";
 
 const comment_router = express();
@@ -13,12 +14,20 @@ comment_router.post("/add/comment", async (req, res) => {
     blog: blogId,
   });
   try {
-    await comment.save().then((comment) => {
+    await comment.save().then(async (comment) => {
       if (comment) {
-        res.status(200).json({
-          success: true,
-          message: "comment added successfully !",
-          comment: comment,
+        //Apply to edit blog by ID and
+
+        await Blog.findOneAndUpdate(
+          { _id: blogId },
+          { $push: { comment: comment._id } },
+          { new: true }
+        ).then((updatedBlog) => {
+          res.status(200).json({
+            success: true,
+            message: "Comment added successfully ! ",
+            blog: updatedBlog,
+          });
         });
       } else {
         res.status(200).json({
