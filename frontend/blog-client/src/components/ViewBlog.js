@@ -30,8 +30,10 @@ function ViewBlog() {
             setBlog(response.data.blog[0]);
             setBlogUser(response.data.blog[0].user.username);
             if (response.data.blog[0].comment.length > 0) {
-              setComments(response.data.blog[0].comment);
-              console.log(response.data.blog[0].comment); // Have to go from here, I think need to implement a map function here to push the data to setComment and then it can be extracted from comment.
+              // Have to go from here, I think need to implement a map function here to push the data to setComment and then it can be extracted from comment.
+              const coms = response.data.blog[0].comment;
+              //console.log(coms);
+              setComments(coms);
             }
           });
       } else {
@@ -53,6 +55,11 @@ function ViewBlog() {
           <div className="card-footer">{blogUser}</div>
         </div>
       </div>
+      {comments.length > 0
+        ? comments.map((comment) => {
+            return <div key={comment._id}> {comment.content} </div>;
+          })
+        : null}
     </div>
   );
 }
