@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import axios from "axios";
+import qs from "qs";
 
 function ViewBlog() {
   const navigate = useNavigate();
@@ -10,10 +11,12 @@ function ViewBlog() {
   const [blog, setBlog] = useState({});
   const [blogUser, setBlogUser] = useState();
   const [comments, setComments] = useState([]);
+  const [content, setContent] = useState({});
   let { state } = useLocation();
 
   //const [blogs, setBlogs] = useState([]);
   const currentUser = sessionStorage.getItem("user");
+  const user = JSON.parse(currentUser);
 
   useEffect(() => {
     if (currentUser === "" || currentUser === null) {
@@ -43,6 +46,23 @@ function ViewBlog() {
     // eslint-disable-next-line
   }, []);
 
+  function handleComment(event) {
+    event.preventDefault();
+    console.log(content);
+    const data = qs.stringify({
+      content: content,
+      userId: user._id,
+      blogId: state._id,
+    });
+    axios
+      .post("http://localhost:4000/add/comment", data)
+      .then((response) => {
+        console.log(response.data);
+        window.location.reload(false);
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
     <div>
       <NavBar auth={true} user={auth ? userObj.username : null} />
@@ -60,6 +80,13 @@ function ViewBlog() {
             return <div key={comment._id}> {comment.content} </div>;
           })
         : null}
+
+      <div>
+        <form method="POST" onSubmit={handleComment}>
+          <input onChange={(e) => setContent(e.target.value)} />
+          <button type="submit">Post</button>
+        </form>
+      </div>
     </div>
   );
 }
