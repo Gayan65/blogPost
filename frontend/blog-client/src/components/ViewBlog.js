@@ -77,7 +77,11 @@ function ViewBlog() {
       </div>
       {comments.length > 0
         ? comments.map((comment) => {
-            return <div key={comment._id}> {comment.content} </div>;
+            return (
+              <div key={comment._id}>
+                {comment.content} user: {comment.user.username}
+              </div>
+            );
           })
         : null}
 
