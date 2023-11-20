@@ -1,5 +1,6 @@
 import express from "express";
 import { Blog } from "../schemas/Blog.js";
+import { Comment } from "../schemas/Comment.js";
 import bodyParser from "body-parser";
 
 const blog_router = express();
@@ -91,20 +92,26 @@ blog_router.get("/blogs/all", async (req, res) => {
 blog_router.delete("/user/blog/:id", (req, res) => {
   const blogId = req.params.id;
   try {
-    Blog.findByIdAndDelete(blogId).then((deletedBlog) => {
-      if (deletedBlog) {
-        return res.status(200).json({
-          success: true,
-          message: `${deletedBlog.title} deleted successfully !`,
-          blog: deletedBlog,
-        });
-      } else {
-        return res.status(200).json({
-          success: false,
-          message: "Blog can not be found",
-        });
-      }
-    });
+    Blog.findByIdAndDelete(blogId)
+      .populate("comment")
+      .then(async (deletedBlog) => {
+        if (deletedBlog) {
+          //Delete the respective comments
+          if (deletedBlog.comment.length > 0) {
+            await Comment.deleteMany({ blog: blogId });
+          }
+          return res.status(200).json({
+            success: true,
+            message: `${deletedBlog.title} deleted successfully !`,
+            blog: deletedBlog,
+          });
+        } else {
+          return res.status(200).json({
+            success: false,
+            message: "Blog can not be found",
+          });
+        }
+      });
   } catch (error) {
     return res.status(400).json({
       success: false,
@@ -146,7 +153,7 @@ blog_router.patch("/blog/update/:id", async (req, res) => {
   }
 });
 
-//Get a specific a blog belongs to blog id
+//Get a specific a blog belongs to blog id, Gives populated User, Comment and populated user
 
 blog_router.get("/blog/:id", async (req, res) => {
   const blogId = req.params.id;
