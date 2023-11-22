@@ -22,3 +22,45 @@ element {
 .body-custom-css {
   height: 100vh !important;
 }
+
+/* NAVBAR */
+.custom-nav {
+  background-color: #2b2a4c;
+}
+
+/* navbar links */
+.custom-nav-link {
+  color: #ea906c;
+}
+
+.custom-nav-link:hover {
+  color: #eee2de;
+}
+
+.custom-nav-link:active {
+  color: #b31312;
+}
+
+/* navbar buttons */
+.btn-primary {
+  background-color: #2b2a4c;
+  color: #ea906c;
+  border: 1px solid #ea906c;
+  border-radius: 2px;
+}
+
+.btn-primary:hover {
+  background-color: #2b2a4c;
+  border: 1px solid #eee2de;
+  color: #eee2de;
+}
+
+.btn-primary:active {
+  color: #b31312 !important;
+  background-color: #2b2a4c !important;
+  border: 1px solid #b31312 !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("../images/icons/toglericon.png");
+}

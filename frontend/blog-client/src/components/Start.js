@@ -41,10 +41,7 @@ function Start() {
                 >
                   Sign in
                 </Link>
-                <Link
-                  className="btn btn-outline-primary btn-lg px-4"
-                  to={"/register"}
-                >
+                <Link className="btn btn-primary btn-lg px-4" to={"/register"}>
                   Register
                 </Link>
               </div>

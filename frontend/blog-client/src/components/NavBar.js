@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NavLogo from "../images/logo.png";
 
 function NavBar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-primary sticky-top ">
+    <nav className="navbar navbar-expand-lg sticky-top custom-nav ">
       <div className="container">
-        <a className="navbar-brand nav-link-custom" href="/home">
-          {"Bloggi"}
+        <a className="navbar-brand" href="/home">
+          <img src={NavLogo} alt="NavLogo" width="35" height="35" />
         </a>
         <button
           className="navbar-toggler"
@@ -23,7 +24,7 @@ function NavBar(props) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a
-                className="nav-link nav-link-custom-other"
+                className="nav-link custom-nav-link"
                 aria-current="page"
                 href="/about_us"
               >
@@ -32,7 +33,7 @@ function NavBar(props) {
             </li>
             <li className="nav-item">
               <a
-                className="nav-link nav-link-custom-other"
+                className="nav-link custom-nav-link"
                 aria-current="page"
                 href="/products"
               >
@@ -75,10 +76,10 @@ function NavBar(props) {
             </div>
           ) : (
             <div className="d-flex">
-              <Link className="btn btn-primary navbar-btn" to={"/login"}>
+              <Link className="btn btn-primary" to={"/login"}>
                 Sign in
               </Link>
-              <Link className="btn btn-primary navbar-btn" to={"/register"}>
+              <Link className="btn btn-primary mx-2 " to={"/register"}>
                 Register
               </Link>
             </div>
