@@ -20,7 +20,7 @@ blog_router.post("/blog/save", async (req, res) => {
     await blog.save().then((blog) => {
       return res.status(200).json({
         success: true,
-        message: `${blog.title} Blog saved successfully !`,
+        message: `Blog saved successfully !, `,
       });
     });
   } catch (error) {

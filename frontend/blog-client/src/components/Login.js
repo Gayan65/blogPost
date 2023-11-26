@@ -57,7 +57,7 @@ function Login() {
           <div className="form-floating">
             <input
               type="text"
-              className="form-control my-3 "
+              className="form-control my-3 custom-input"
               id="floatingInput"
               placeholder="Email"
               onChange={(e) => setUsername(e.target.value)}
@@ -70,7 +70,7 @@ function Login() {
           <div className="form-floating">
             <input
               type="password"
-              className="form-control"
+              className="form-control custom-input"
               id="floatingPassword"
               placeholder="Password"
               autoComplete="on"

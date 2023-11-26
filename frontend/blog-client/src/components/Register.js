@@ -70,7 +70,7 @@ function Register() {
                 <div className="form-floating">
                   <input
                     type="text"
-                    className="form-control my-3 "
+                    className="form-control my-3 custom-input"
                     autoComplete="on"
                     placeholder="Email"
                     onChange={(e) => setUsername(e.target.value)}
@@ -85,7 +85,7 @@ function Register() {
                 <div className="form-floating">
                   <input
                     type="text"
-                    className="form-control my-3 "
+                    className="form-control my-3 custom-input"
                     autoComplete="on"
                     placeholder="Full Name"
                     onChange={(e) => setFname(e.target.value)}
@@ -100,7 +100,7 @@ function Register() {
                 <div className="form-floating">
                   <input
                     type="text"
-                    className="form-control my-3 "
+                    className="form-control my-3 custom-input"
                     autoComplete="on"
                     placeholder="Nick Name"
                     onChange={(e) => setNickName(e.target.value)}
@@ -115,7 +115,7 @@ function Register() {
                 <div className="form-floating mb-3 ">
                   <input
                     type="password"
-                    className="form-control"
+                    className="form-control custom-input"
                     placeholder="Password"
                     autoComplete="on"
                     onChange={(e) => setPassword(e.target.value)}

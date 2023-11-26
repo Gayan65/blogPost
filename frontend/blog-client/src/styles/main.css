@@ -64,3 +64,19 @@ element {
 .navbar-toggler-icon {
   background-image: url("../images/icons/toglericon.png");
 }
+
+/* inputs text */
+.custom-input {
+  border: #ea906c solid 1px;
+  color: #2b2a4c;
+  border-radius: 2px;
+}
+
+.custom-input:focus {
+  border: #2b2a4c solid 1px;
+  box-shadow: 2px 2px 5px #2b2a4c;
+}
+
+.textarea-custom {
+  height: 240px !important;
+}
