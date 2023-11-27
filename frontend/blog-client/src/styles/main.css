@@ -93,3 +93,41 @@ element {
   border: none;
   border-radius: 2px;
 }
+
+/*No exceeds the content*/
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+.card {
+  border: #2b2a4c14 solid 1px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 5px #2b2a4c20;
+  background-color: rgba(43, 42, 76, 0.107);
+}
+
+.card-footer {
+  position: relative;
+  background-color: #2b2a4c;
+}
+
+.card-link {
+  display: inline;
+  color: #ea906c;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: #eee2de;
+}
+.card-author {
+  display: inline;
+  position: absolute;
+  right: 0;
+  padding-right: 15px;
+  color: #eee2de;
+}

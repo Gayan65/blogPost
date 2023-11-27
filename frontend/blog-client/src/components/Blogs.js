@@ -24,17 +24,16 @@ function Blogs() {
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {blogs.map((blog) => (
             <div key={blog._id} className="col">
-              <div className="card mb-3" style={{ maxWidth: "28rem" }}>
-                <div className="card-header">From {blog.user.username} </div>
+              <div className="card mb-3" style={{ minHeight: "15rem" }}>
                 <div className="card-body">
                   <h5 className="card-title">{blog.title} </h5>
                   <p className="card-text"> {blog.content} </p>
                 </div>
                 <div className="card-footer">
-                  Footer{" "}
-                  <Link to={"/view_blog"} state={blog}>
-                    View
+                  <Link className="card-link" to={"/view_blog"} state={blog}>
+                    Full View
                   </Link>
+                  <div className="card-author end-0 ">{blog.user.username}</div>
                 </div>
               </div>
             </div>
