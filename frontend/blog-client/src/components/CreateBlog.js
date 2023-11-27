@@ -51,7 +51,7 @@ function CreateBlog() {
 
       <div className="body-custom-css">
         <div className="container my-auto">
-          <main className="form-signin w-100 mx-auto">
+          <main className="form-blogcreate w-100 mx-auto mt-5 ">
             <form method="POST" onSubmit={handleSubmit}>
               <h1 className="h3 mb-3 fw-normal">Create Blog</h1>
               <div className="form-floating">
@@ -87,16 +87,19 @@ function CreateBlog() {
                 Post
               </button>
             </form>
+            {data.success ? (
+              <div
+                className="alert alert-primary text-center mt-3 "
+                role="alert"
+              >
+                {data.message}
+                <a href="/home" className="alert-link">
+                  View Blogs
+                </a>
+                . Give it a click if you like.
+              </div>
+            ) : null}
           </main>
-          {data.success ? (
-            <div className="alert alert-primary" role="alert">
-              {data.message}
-              <a href="/home" className="alert-link">
-                View Blogs
-              </a>
-              . Give it a click if you like.
-            </div>
-          ) : null}
         </div>
       </div>
     </div>

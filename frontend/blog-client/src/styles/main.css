@@ -80,3 +80,16 @@ element {
 .textarea-custom {
   height: 240px !important;
 }
+
+/* box element create blogs */
+.form-blogcreate {
+  max-width: 630px;
+  padding: 1rem;
+}
+
+/* success alert */
+.alert-primary {
+  background-color: rgba(43, 42, 76, 0.3);
+  border: none;
+  border-radius: 2px;
+}
