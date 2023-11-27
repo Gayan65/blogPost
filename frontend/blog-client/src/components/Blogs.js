@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import quote from "../images/icons/card.png";
 
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
@@ -20,21 +21,32 @@ function Blogs() {
 
   return (
     <div className="container-fluid body-custom-css">
-      <div className="container mt-4">
+      <div className="container mt-5">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {blogs.map((blog) => (
             <div key={blog._id} className="col">
-              <div className="card mb-3" style={{ minHeight: "15rem" }}>
-                <div className="card-body">
-                  <h5 className="card-title">{blog.title} </h5>
-                  <p className="card-text"> {blog.content} </p>
+              <div
+                className="blockquote blockquote-custom bg-white p-5 shadow rounded"
+                style={{ minHeight: "15rem" }}
+              >
+                <div className="blockquote-custom-icon bg-light shadow-sm">
+                  <img src={quote} style={{ width: "50px", height: "50px" }} />
                 </div>
-                <div className="card-footer">
-                  <Link className="card-link" to={"/view_blog"} state={blog}>
-                    Full View
-                  </Link>
-                  <div className="card-author end-0 ">{blog.user.username}</div>
+                <div className="mb-0 mt-2 font-italic card-text">
+                  <h5>{blog.title} </h5>
+                  <p>
+                    {" "}
+                    {blog.content}{" "}
+                    <Link className="text-info" to={"/view_blog"} state={blog}>
+                      @View
+                    </Link>
+                  </p>
                 </div>
+
+                <footer className="blockquote-footer pt-4 mt-4 border-top">
+                  {blog.user.username}
+                  <cite title="Source Title"></cite>
+                </footer>
               </div>
             </div>
           ))}

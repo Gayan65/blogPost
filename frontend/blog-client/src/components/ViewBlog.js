@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import axios from "axios";
 import qs from "qs";
+import quote from "../images/icons/card.png";
 
 function ViewBlog() {
   const navigate = useNavigate();
@@ -67,13 +68,16 @@ function ViewBlog() {
     <div>
       <NavBar auth={true} user={auth ? userObj.username : null} />
       <div className="ms-4 mt-5 ">
-        <div className="card" style={{ width: "18rem" }}>
-          <div className="card-body">
-            <h5 className="card-title">{blog.title}</h5>
-            <p className="card-text">{blog.content}</p>
+        <blockquote className="blockquote blockquote-custom bg-white p-5 shadow rounded">
+          <div className="blockquote-custom-icon bg-info shadow-sm">
+            <img src={quote} style={{ width: "50px", height: "50px" }} />
           </div>
-          <div className="card-footer">{blogUser}</div>
-        </div>
+          <p className="mb-0 mt-2 font-italic">"{blog.content}".</p>
+          <footer className="blockquote-footer pt-4 mt-4 border-top">
+            {blogUser}
+            <cite title="Source Title"> {blog.title} </cite>
+          </footer>
+        </blockquote>
       </div>
       {comments.length > 0
         ? comments.map((comment) => {
