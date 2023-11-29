@@ -38,18 +38,16 @@ function Blogs() {
                 </div>
                 <div className="mb-0 mt-2 font-italic card-text">
                   <h5>{blog.title} </h5>
-                  <p>
-                    {" "}
-                    {blog.content}{" "}
-                    <Link className="text-info" to={"/view_blog"} state={blog}>
-                      @View
-                    </Link>
-                  </p>
+                  <p>{blog.content}</p>
                 </div>
 
                 <footer className="blockquote-footer pt-4 mt-4 border-top">
                   {blog.user.username}
-                  <cite title="Source Title"></cite>
+                  <cite title="Source Title">
+                    <Link className="text-info" to={"/view_blog"} state={blog}>
+                      @View
+                    </Link>
+                  </cite>
                 </footer>
               </div>
             </div>

@@ -68,7 +68,7 @@ function ViewBlog() {
     <div>
       <NavBar auth={true} user={auth ? userObj.username : null} />
       <div className="ms-4 mt-5 ">
-        <blockquote className="blockquote blockquote-custom bg-white p-5 shadow rounded">
+        <blockquote className="blockquote blockquote-custom bg-white p-5 shadow rounded custom-card">
           <div className="blockquote-custom-icon bg-info shadow-sm">
             <img
               src={quote}
@@ -76,28 +76,39 @@ function ViewBlog() {
               alt="quote"
             />
           </div>
-          <p className="mb-0 mt-2 font-italic">"{blog.content}".</p>
+          <div>
+            <p className="mb-0 mt-2 font-italic">"{blog.content}".</p>
+          </div>
           <footer className="blockquote-footer pt-4 mt-4 border-top">
             {blogUser}
             <cite title="Source Title"> {blog.title} </cite>
           </footer>
-        </blockquote>
-      </div>
-      {comments.length > 0
-        ? comments.map((comment) => {
-            return (
-              <div key={comment._id}>
-                {comment.content} user: {comment.user.username}
-              </div>
-            );
-          })
-        : null}
+          {comments.length > 0
+            ? comments.map((comment) => {
+                return (
+                  <div key={comment._id} className="comment-custom container ">
+                    <div className="comment">{comment.content}</div>
+                    <div className="comment-user">
+                      ~{comment.user.username}~
+                    </div>
+                  </div>
+                );
+              })
+            : null}
 
-      <div>
-        <form method="POST" onSubmit={handleComment}>
-          <input onChange={(e) => setContent(e.target.value)} />
-          <button type="submit">Post</button>
-        </form>
+          <div className="input-comment-container">
+            <form method="POST" onSubmit={handleComment}>
+              <input
+                className="input-comment"
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Add comment"
+              />
+              <button className="btn btn-outline-secondary" type="submit">
+                Post
+              </button>
+            </form>
+          </div>
+        </blockquote>
       </div>
     </div>
   );
