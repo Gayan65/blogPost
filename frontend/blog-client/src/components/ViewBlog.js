@@ -70,7 +70,11 @@ function ViewBlog() {
       <div className="ms-4 mt-5 ">
         <blockquote className="blockquote blockquote-custom bg-white p-5 shadow rounded">
           <div className="blockquote-custom-icon bg-info shadow-sm">
-            <img src={quote} style={{ width: "50px", height: "50px" }} />
+            <img
+              src={quote}
+              style={{ width: "50px", height: "50px" }}
+              alt="quote"
+            />
           </div>
           <p className="mb-0 mt-2 font-italic">"{blog.content}".</p>
           <footer className="blockquote-footer pt-4 mt-4 border-top">

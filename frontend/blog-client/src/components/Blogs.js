@@ -30,7 +30,11 @@ function Blogs() {
                 style={{ minHeight: "15rem" }}
               >
                 <div className="blockquote-custom-icon bg-light shadow-sm">
-                  <img src={quote} style={{ width: "50px", height: "50px" }} />
+                  <img
+                    src={quote}
+                    style={{ width: "50px", height: "50px" }}
+                    alt="quote"
+                  />
                 </div>
                 <div className="mb-0 mt-2 font-italic card-text">
                   <h5>{blog.title} </h5>
