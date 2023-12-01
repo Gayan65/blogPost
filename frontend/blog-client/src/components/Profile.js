@@ -24,7 +24,6 @@ function Profile() {
         .then((response) => {
           if (response.data.success) {
             setCurrentUser(response.data.user[0]);
-            console.log(currentUser);
           }
         })
         .catch((error) => {
@@ -36,15 +35,40 @@ function Profile() {
   return (
     <div>
       <NavBar auth={true} user={auth ? currentUser.username : null} />
-      <div>
-        <div className="card">
-          <h5 className="card-header">User Profile</h5>
-          <div className="card-body">
-            <h5 className="card-title"> {currentUser.username} </h5>
-            <p className="card-text">Email {currentUser.username}</p>
-            <p className="card-text">Full Name {currentUser.fname}</p>
-            <p className="card-text">Nick Name {currentUser.nickName}</p>
-            <p className="card-text">Date Joined {currentUser.createDate}</p>
+
+      <div className="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+        <div className="list-group custom-profile-card container">
+          <div className="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <div className="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 className="mb-0">Username/ Email Address</h6>
+                <p className="mb-0 opacity-75">{currentUser.username}</p>
+              </div>
+            </div>
+          </div>
+          <div className="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <div className="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 className="mb-0">Full Name</h6>
+                <p className="mb-0 opacity-75">{currentUser.username}</p>
+              </div>
+            </div>
+          </div>
+          <div className="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <div className="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 className="mb-0">Nick Name</h6>
+                <p className="mb-0 opacity-75">{currentUser.nickName}</p>
+              </div>
+            </div>
+          </div>
+          <div className="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <div className="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 className="mb-0">Date Joined</h6>
+                <p className="mb-0 opacity-75">{currentUser.createDate}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

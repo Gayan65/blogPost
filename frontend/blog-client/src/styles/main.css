@@ -192,3 +192,7 @@ element {
   box-shadow: 2px 5px 5px #2b2a4c;
   outline: none;
 }
+
+.custom-profile-card {
+  max-width: 600px;
+}
