@@ -70,6 +70,13 @@ function Profile() {
               </div>
             </div>
           </div>
+          <div className="">
+            <div>
+              <a href="/home" className="btn btn-outline-primary mt-2 ">
+                Home
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

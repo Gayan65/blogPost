@@ -26,6 +26,15 @@ function NavBar(props) {
               <a
                 className="nav-link custom-nav-link"
                 aria-current="page"
+                href="/home"
+              >
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link custom-nav-link"
+                aria-current="page"
                 href="/about_us"
               >
                 About us

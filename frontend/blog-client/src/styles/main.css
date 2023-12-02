@@ -228,3 +228,8 @@ element {
   background-color: #2b2a4c;
   color: #ea906c;
 }
+
+.btn-outline-primary:active {
+  color: #ea906c;
+  background-color: #b31312 !important;
+}
