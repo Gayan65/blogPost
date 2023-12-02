@@ -43,7 +43,7 @@ function UserBlog() {
 
   return (
     <div>
-      <NavBar auth={true} user={auth ? userObj.username : null} />
+      <NavBar auth={true} user={auth ? userObj.nickName : null} />
       <div className="container-fluid body-custom-css">
         <div className="container">
           <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -67,7 +67,7 @@ function UserBlog() {
                     </div>
 
                     <footer className="blockquote-footer pt-4 mt-4 border-top">
-                      {blog.user.username}
+                      {blog.user.fname}
                       <cite title="Source Title">
                         <Link className="text-info" to={"/blog"} state={blog}>
                           @View
@@ -80,7 +80,7 @@ function UserBlog() {
             ) : (
               <div className="alert alert-danger mt-5">
                 No blogs to display
-                <a href="/user/create_blog" class="alert-link">
+                <a href="/user/create_blog" className="alert-link">
                   . Create a blog
                 </a>
               </div>

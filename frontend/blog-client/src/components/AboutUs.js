@@ -8,7 +8,7 @@ function AboutUs() {
   if (userObj) {
     return (
       <div>
-        <NavBar auth={true} user={userObj.username} />
+        <NavBar auth={true} user={userObj.nickName} />
         <About />
       </div>
     );

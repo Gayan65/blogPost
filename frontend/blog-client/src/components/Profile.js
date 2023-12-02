@@ -34,7 +34,7 @@ function Profile() {
   }, []);
   return (
     <div>
-      <NavBar auth={true} user={auth ? currentUser.username : null} />
+      <NavBar auth={true} user={auth ? currentUser.nickName : null} />
 
       <div className="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
         <div className="list-group custom-profile-card container">
@@ -50,7 +50,7 @@ function Profile() {
             <div className="d-flex gap-2 w-100 justify-content-between">
               <div>
                 <h6 className="mb-0">Full Name</h6>
-                <p className="mb-0 opacity-75">{currentUser.username}</p>
+                <p className="mb-0 opacity-75">{currentUser.fname}</p>
               </div>
             </div>
           </div>

@@ -56,7 +56,7 @@ function Login() {
 
           <div className="form-floating">
             <input
-              type="text"
+              type="email"
               className="form-control my-3 custom-input"
               id="floatingInput"
               placeholder="Email"

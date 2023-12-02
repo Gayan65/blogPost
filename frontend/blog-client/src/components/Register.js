@@ -69,7 +69,7 @@ function Register() {
 
                 <div className="form-floating">
                   <input
-                    type="text"
+                    type="email"
                     className="form-control my-3 custom-input"
                     autoComplete="on"
                     placeholder="Email"

@@ -83,7 +83,7 @@ function Blog() {
   if (auth) {
     return (
       <div>
-        <NavBar auth={true} user={auth ? userObj.username : null} />
+        <NavBar auth={true} user={auth ? userObj.nickName : null} />
         {editClicked ? (
           <div className="ms-4 mt-5 blockquote blockquote-custom bg-white p-5 shadow rounded custom-card container">
             <div className="blockquote-custom-icon bg-info shadow-sm">

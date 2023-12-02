@@ -42,7 +42,7 @@ function Blogs() {
                 </div>
 
                 <footer className="blockquote-footer pt-4 mt-4 border-top">
-                  {blog.user.username}
+                  {blog.user.fname}
                   <cite title="Source Title">
                     <Link className="text-info" to={"/view_blog"} state={blog}>
                       @View

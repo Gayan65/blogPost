@@ -32,7 +32,7 @@ function ViewBlog() {
           .get(`http://localhost:4000/blog/${state._id}`)
           .then((response) => {
             setBlog(response.data.blog[0]);
-            setBlogUser(response.data.blog[0].user.username);
+            setBlogUser(response.data.blog[0].user.fname);
             if (response.data.blog[0].comment.length > 0) {
               // Have to go from here, I think need to implement a map function here to push the data to setComment and then it can be extracted from comment.
               const coms = response.data.blog[0].comment;
@@ -66,7 +66,7 @@ function ViewBlog() {
 
   return (
     <div>
-      <NavBar auth={true} user={auth ? userObj.username : null} />
+      <NavBar auth={true} user={auth ? userObj.nickName : null} />
       <div className="ms-4 mt-5 ">
         <blockquote className="blockquote blockquote-custom bg-white p-5 shadow rounded custom-card">
           <div className="blockquote-custom-icon bg-info shadow-sm">
@@ -89,7 +89,7 @@ function ViewBlog() {
                   <div key={comment._id} className="comment-custom container ">
                     <div className="comment">{comment.content}</div>
                     <div className="comment-user">
-                      ~{comment.user.username}~
+                      ~{comment.user.nickName}~
                     </div>
                   </div>
                 );

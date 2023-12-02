@@ -47,7 +47,7 @@ function CreateBlog() {
   }
   return (
     <div>
-      <NavBar auth={true} user={auth ? userObj.username : null} />
+      <NavBar auth={true} user={auth ? userObj.nickName : null} />
 
       <div className="body-custom-css">
         <div className="container my-auto">
