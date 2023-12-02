@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
+import Product from "./Product";
 
 function Products() {
   let user = sessionStorage.getItem("user");
@@ -8,14 +9,14 @@ function Products() {
     return (
       <div>
         <NavBar auth={true} user={userObj.username} />
-        <h1>Products</h1>
+        <Product />
       </div>
     );
   } else {
     return (
       <div>
         <NavBar auth={false} />
-        <h1>Products</h1>
+        <Product />
       </div>
     );
   }
