@@ -78,7 +78,12 @@ function UserBlog() {
                 </div>
               ))
             ) : (
-              <div className="alert alert-danger mt-5">No blogs to display</div>
+              <div className="alert alert-danger mt-5">
+                No blogs to display
+                <a href="/user/create_blog" class="alert-link">
+                  . Create a blog
+                </a>
+              </div>
             )}
           </div>
         </div>

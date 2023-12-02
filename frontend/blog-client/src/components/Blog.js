@@ -47,6 +47,7 @@ function Blog() {
       .delete(`http://localhost:4000/user/blog/${_id}`)
       .then((response) => {
         console.log(response.data);
+        navigate("/user/blogs");
       })
       .catch((error) => {
         console.error(error);
@@ -57,6 +58,10 @@ function Blog() {
     setEditClicked(true);
     setTileValue(title);
     setContentValue(content);
+  }
+
+  function handleBackClicked() {
+    navigate("/user/blogs");
   }
 
   async function handleClickOk() {
@@ -130,12 +135,16 @@ function Blog() {
             </div>
           </div>
         )}
+
+        <button className="btn btn-primary ms-5" onClick={handleBackClicked}>
+          Back
+        </button>
         {editClicked ? (
-          <button className="btn btn-primary ms-5" onClick={handleClickOk}>
+          <button className="btn btn-primary ms-2" onClick={handleClickOk}>
             Ok
           </button>
         ) : (
-          <button className="btn btn-primary ms-5" onClick={handleClickEdit}>
+          <button className="btn btn-primary ms-2" onClick={handleClickEdit}>
             Edit
           </button>
         )}
