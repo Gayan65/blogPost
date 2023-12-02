@@ -196,3 +196,23 @@ element {
 .custom-profile-card {
   max-width: 600px;
 }
+
+.input-edit-blog-title {
+  border: #2b2a4c solid 1px;
+  color: #2b2a4c;
+  border-radius: 2px;
+  width: 100%;
+  padding: 5px;
+}
+
+.input-edit-blog-title:focus {
+  outline: none;
+  box-shadow: 2px 5px 5px #2b2a4c;
+}
+
+.btn-danger {
+  background-color: #b31312;
+  border-radius: 2px;
+  border: #ea906c solid 1px;
+  color: #ea906c;
+}

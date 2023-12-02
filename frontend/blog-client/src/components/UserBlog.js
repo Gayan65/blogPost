@@ -3,6 +3,7 @@ import axios from "axios";
 import qs from "qs";
 import { useNavigate, Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import quote from "../images/icons/card.png";
 
 function UserBlog() {
   const navigate = useNavigate();
@@ -50,27 +51,34 @@ function UserBlog() {
               blogs.map((blog) => (
                 <div key={blog._id} className="col">
                   <div
-                    className="card border-success mb-3"
-                    style={{ maxWidth: "18rem" }}
+                    className="blockquote blockquote-custom bg-white p-5 shadow rounded mt-5 "
+                    style={{ minHeight: "15rem" }}
                   >
-                    <div className="card-header bg-transparent border-success">
-                      From {blog.user.username}{" "}
+                    <div className="blockquote-custom-icon bg-light shadow-sm">
+                      <img
+                        src={quote}
+                        style={{ width: "50px", height: "50px" }}
+                        alt="quote"
+                      />
                     </div>
-                    <div className="card-body text-success">
-                      <h5 className="card-title">{blog.title} </h5>
-                      <p className="card-text"> {blog.content} </p>
+                    <div className="mb-0 mt-2 font-italic card-text">
+                      <h5>{blog.title} </h5>
+                      <p>{blog.content}</p>
                     </div>
-                    <div className="card-footer bg-transparent border-success">
-                      Footer{" "}
-                      <Link to={"/blog"} state={blog}>
-                        View
-                      </Link>
-                    </div>
+
+                    <footer className="blockquote-footer pt-4 mt-4 border-top">
+                      {blog.user.username}
+                      <cite title="Source Title">
+                        <Link className="text-info" to={"/blog"} state={blog}>
+                          @View
+                        </Link>
+                      </cite>
+                    </footer>
                   </div>
                 </div>
               ))
             ) : (
-              <li> No blogs to display </li>
+              <div className="alert alert-danger mt-5">No blogs to display</div>
             )}
           </div>
         </div>

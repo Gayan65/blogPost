@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import qs from "qs";
 import NavBar from "./NavBar";
+import quote from "../images/icons/card.png";
 
 function Blog() {
   const [editClicked, setEditClicked] = useState(false);
@@ -79,55 +80,66 @@ function Blog() {
       <div>
         <NavBar auth={true} user={auth ? userObj.username : null} />
         {editClicked ? (
-          <div className="ms-4 mt-5 ">
-            <div className="card" style={{ width: "18rem" }}>
-              <div className="card-body">
-                <form>
-                  <h5 className="card-title">
-                    <input
-                      type="text"
-                      value={titleValue}
-                      onChange={(e) => setTileValue(e.target.value)}
-                      name="title"
-                    />
-                  </h5>
-                  <p className="card-text">
-                    Content :
-                    <input
-                      type="text"
-                      value={contentValue}
-                      onChange={(e) => setContentValue(e.target.value)}
-                      name="content"
-                    />
-                  </p>
-                </form>
-              </div>
+          <div className="ms-4 mt-5 blockquote blockquote-custom bg-white p-5 shadow rounded custom-card container">
+            <div className="blockquote-custom-icon bg-info shadow-sm">
+              <img
+                src={quote}
+                style={{ width: "50px", height: "50px" }}
+                alt="quote"
+              />
+            </div>
+            <div className="card-body">
+              <form>
+                <h5>
+                  <input
+                    type="text"
+                    value={titleValue}
+                    onChange={(e) => setTileValue(e.target.value)}
+                    name="title"
+                    className="input-edit-blog-title"
+                  />
+                </h5>
+                <p>
+                  <textarea
+                    type="text"
+                    value={contentValue}
+                    onChange={(e) => setContentValue(e.target.value)}
+                    name="content"
+                    className="input-edit-blog-title textarea-custom"
+                  />
+                </p>
+              </form>
             </div>
           </div>
         ) : (
-          <div className="ms-4 mt-5 ">
-            <div className="card" style={{ width: "18rem" }}>
-              <div className="card-body">
-                <h5 className="card-title">
-                  {titleValue.length > 0 ? titleValue : title}
-                </h5>
-                <p className="card-text">
-                  {contentValue.length > 0 ? contentValue : content}
-                </p>
-              </div>
+          <div className="ms-4 mt-5 blockquote blockquote-custom bg-white p-5 shadow rounded custom-card container ">
+            <div className="blockquote-custom-icon bg-info shadow-sm">
+              <img
+                src={quote}
+                style={{ width: "50px", height: "50px" }}
+                alt="quote"
+              />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">
+                {titleValue.length > 0 ? titleValue : title}
+              </h5>
+              <p className="card-text">
+                {contentValue.length > 0 ? contentValue : content}
+              </p>
             </div>
           </div>
         )}
         {editClicked ? (
-          <button className="btn btn-success " onClick={handleClickOk}>
+          <button className="btn btn-primary ms-5" onClick={handleClickOk}>
             Ok
           </button>
         ) : (
-          <button className="btn btn-success" onClick={handleClickEdit}>
+          <button className="btn btn-primary ms-5" onClick={handleClickEdit}>
             Edit
           </button>
         )}
-        <button className="btn btn-danger" onClick={handleClickDelete}>
+        <button className="btn btn-danger ms-2" onClick={handleClickDelete}>
           Delete
         </button>
       </div>
