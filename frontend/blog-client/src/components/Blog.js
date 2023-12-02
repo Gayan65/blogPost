@@ -136,7 +136,10 @@ function Blog() {
           </div>
         )}
 
-        <button className="btn btn-primary ms-5" onClick={handleBackClicked}>
+        <button
+          className="btn btn-outline-primary ms-5"
+          onClick={handleBackClicked}
+        >
           Back
         </button>
         {editClicked ? (
