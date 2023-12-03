@@ -44,4 +44,21 @@ comment_router.post("/add/comment", async (req, res) => {
   }
 });
 
+//Get all comments
+comment_router.get("/comments/all", async (req, res) => {
+  try {
+    await Comment.find().then((comments) => {
+      res.status(200).json({
+        success: true,
+        comments: comments,
+      });
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 export default comment_router;
