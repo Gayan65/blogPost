@@ -12,6 +12,7 @@ import Products from "./Products";
 import Footer from "./Footer";
 import ViewBlog from "./ViewBlog";
 import Profile from "./Profile";
+import Admin from "./Admin";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/products" element={<Products />}></Route>
           <Route path="/view_blog" element={<ViewBlog />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/admin" element={<Admin />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />
