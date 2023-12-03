@@ -21,7 +21,11 @@ function Home() {
 
   return (
     <div>
-      <NavBar auth={true} user={auth ? userObj.nickName : null} />
+      <NavBar
+        auth={true}
+        user={auth ? userObj.nickName : null}
+        admin={userObj.admin}
+      />
       <Blogs />
     </div>
   );

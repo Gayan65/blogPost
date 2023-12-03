@@ -43,7 +43,11 @@ function UserBlog() {
 
   return (
     <div>
-      <NavBar auth={true} user={auth ? userObj.nickName : null} />
+      <NavBar
+        auth={true}
+        user={auth ? userObj.nickName : null}
+        admin={userObj.admin}
+      />
       <div className="container-fluid body-custom-css">
         <div className="container">
           <div className="row row-cols-1 row-cols-md-3 g-4">

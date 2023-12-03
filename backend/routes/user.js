@@ -31,6 +31,7 @@ user_router.post("/user/create", async (req, res) => {
       fname: req.body.fname,
       nickName: req.body.nickName,
       createDate: req.body.createDate,
+      admin: req.body.admin,
     });
 
     await User.findOne({ username: user.username }).then(async (foundUser) => {

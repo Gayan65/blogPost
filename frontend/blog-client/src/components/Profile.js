@@ -34,7 +34,11 @@ function Profile() {
   }, []);
   return (
     <div>
-      <NavBar auth={true} user={auth ? currentUser.nickName : null} />
+      <NavBar
+        auth={true}
+        user={auth ? currentUser.nickName : null}
+        admin={currentUser.admin}
+      />
 
       <div className="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
         <div className="list-group custom-profile-card container">

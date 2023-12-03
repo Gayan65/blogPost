@@ -8,7 +8,7 @@ function Products() {
   if (userObj) {
     return (
       <div>
-        <NavBar auth={true} user={userObj.nickName} />
+        <NavBar auth={true} user={userObj.nickName} admin={userObj.admin} />
         <Product />
       </div>
     );

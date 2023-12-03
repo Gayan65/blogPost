@@ -66,7 +66,11 @@ function ViewBlog() {
 
   return (
     <div>
-      <NavBar auth={true} user={auth ? userObj.nickName : null} />
+      <NavBar
+        auth={true}
+        user={auth ? userObj.nickName : null}
+        admin={userObj.admin}
+      />
       <div className="ms-4 mt-5 ">
         <blockquote className="blockquote blockquote-custom bg-white p-5 shadow rounded custom-card">
           <div className="blockquote-custom-icon bg-info shadow-sm">

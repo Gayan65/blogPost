@@ -61,6 +61,13 @@ function NavBar(props) {
                 {props.user}
               </button>
               <ul className="dropdown-menu">
+                {props.admin && (
+                  <li>
+                    <Link className="dropdown-item" to={"/login"}>
+                      Admin Function
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <Link className="dropdown-item" to={"/user/blogs"}>
                     My blogs

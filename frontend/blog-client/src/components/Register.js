@@ -27,6 +27,7 @@ function Register() {
       fname: fname,
       createDate: new Date(),
       nickName: nickName,
+      admin: false,
     });
     await axios
       .post("http://localhost:4000/user/create", data)
