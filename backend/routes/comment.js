@@ -61,4 +61,29 @@ comment_router.get("/comments/all", async (req, res) => {
   }
 });
 
+//Delete comment
+comment_router.delete("/comment/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Comment.findByIdAndDelete(id).then((deletedComment) => {
+      if (deletedComment) {
+        res.status(200).json({
+          success: true,
+          message: "Comment deleted successfully !",
+        });
+      } else {
+        res.status(200).json({
+          success: false,
+          message: "Comment can not  be found !",
+        });
+      }
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 export default comment_router;

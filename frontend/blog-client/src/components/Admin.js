@@ -52,6 +52,22 @@ function Admin() {
   }, []);
   const userObj = JSON.parse(user);
 
+  async function handdleDeleteComment(e) {
+    console.log("Dleteclicked");
+    console.log(e.target.value);
+    const commentId = e.target.value;
+    await axios
+      .delete(`http://localhost:4000/comment/delete/${commentId}`)
+      .then((response) => {
+        console.log(response.data);
+        window.location.reload(false);
+        alert(response.data.message);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   return (
     <div>
       <NavBar
@@ -169,7 +185,13 @@ function Admin() {
                           <p>{commentItem.content}</p>
                         </div>
 
-                        <button className="btn btn-primary">Delete</button>
+                        <button
+                          className="btn btn-primary"
+                          onClick={handdleDeleteComment}
+                          value={commentItem._id}
+                        >
+                          Delete
+                        </button>
                       </div>
                     </div>
                   );
