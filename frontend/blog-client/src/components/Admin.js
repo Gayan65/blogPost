@@ -53,13 +53,25 @@ function Admin() {
   const userObj = JSON.parse(user);
 
   async function handdleDeleteComment(e) {
-    console.log("Dleteclicked");
-    console.log(e.target.value);
     const commentId = e.target.value;
     await axios
       .delete(`http://localhost:4000/comment/delete/${commentId}`)
       .then((response) => {
-        console.log(response.data);
+        window.location.reload(false);
+        alert(response.data.message);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  ///user/blog/:id"
+
+  async function handdleDeleteBlog(e) {
+    const blogId = e.target.value;
+    await axios
+      .delete(`http://localhost:4000/user/blog/${blogId}`)
+      .then((response) => {
         window.location.reload(false);
         alert(response.data.message);
       })
@@ -138,20 +150,30 @@ function Admin() {
           >
             <div className="accordion-body">
               <div className="col-sm-6 mb-3 mb-sm-0">
-                {blogs.map((blogItem) => {
-                  return (
-                    <div key={blogItem._id} className="card my-2 ">
-                      <div className="card-body">
-                        <h5 className="card-title"> {blogItem.title} </h5>
-                        <div className="card-text">
-                          <p>{blogItem.content}</p>
-                        </div>
+                {blogs === undefined ? (
+                  <div>No blogs</div>
+                ) : (
+                  blogs.map((blogItem) => {
+                    return (
+                      <div key={blogItem._id} className="card my-2 ">
+                        <div className="card-body">
+                          <h5 className="card-title"> {blogItem.title} </h5>
+                          <div className="card-text">
+                            <p>{blogItem.content}</p>
+                          </div>
 
-                        <button className="btn btn-primary">Delete</button>
+                          <button
+                            className="btn btn-primary"
+                            onClick={handdleDeleteBlog}
+                            value={blogItem._id}
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>
