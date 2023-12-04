@@ -151,7 +151,7 @@ function Admin() {
             <div className="accordion-body">
               <div className="col-sm-6 mb-3 mb-sm-0">
                 {blogs === undefined ? (
-                  <div>No blogs</div>
+                  <div className="alert alert-danger">No blogs</div>
                 ) : (
                   blogs.map((blogItem) => {
                     return (
@@ -198,26 +198,30 @@ function Admin() {
           >
             <div className="accordion-body">
               <div className="col-sm-6 mb-3 mb-sm-0">
-                {comments.map((commentItem) => {
-                  return (
-                    <div key={commentItem._id} className="card my-2 ">
-                      <div className="card-body">
-                        <h5 className="card-title"> Comment </h5>
-                        <div className="card-text">
-                          <p>{commentItem.content}</p>
-                        </div>
+                {comments.length > 0 ? (
+                  comments.map((commentItem) => {
+                    return (
+                      <div key={commentItem._id} className="card my-2 ">
+                        <div className="card-body">
+                          <h5 className="card-title"> Comment </h5>
+                          <div className="card-text">
+                            <p>{commentItem.content}</p>
+                          </div>
 
-                        <button
-                          className="btn btn-primary"
-                          onClick={handdleDeleteComment}
-                          value={commentItem._id}
-                        >
-                          Delete
-                        </button>
+                          <button
+                            className="btn btn-primary"
+                            onClick={handdleDeleteComment}
+                            value={commentItem._id}
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })
+                ) : (
+                  <div className="alert alert-danger"> No comments </div>
+                )}
               </div>
             </div>
           </div>
