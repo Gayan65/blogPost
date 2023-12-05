@@ -3,9 +3,11 @@ import { User } from "../schemas/User.js";
 import { Blog } from "../schemas/Blog.js";
 import { Comment } from "../schemas/Comment.js";
 import bodyParser from "body-parser";
+import bcrypt from "bcrypt";
 
 const user_router = express();
 user_router.use(bodyParser.urlencoded({ extended: false }));
+const saltRounds = 10;
 
 //Getting All users (Admin Use Only).........
 user_router.get("/users/all", async (req, res) => {
@@ -27,29 +29,34 @@ user_router.get("/users/all", async (req, res) => {
 //Creating users
 user_router.post("/user/create", async (req, res) => {
   try {
-    const user = new User({
-      username: req.body.username,
-      password: req.body.password,
-      fname: req.body.fname,
-      nickName: req.body.nickName,
-      createDate: req.body.createDate,
-      admin: req.body.admin,
-    });
+    bcrypt.hash(req.body.password, saltRounds, async function (err, hash) {
+      // Store hash in your password DB.
+      const user = new User({
+        username: req.body.username,
+        password: hash,
+        fname: req.body.fname,
+        nickName: req.body.nickName,
+        createDate: req.body.createDate,
+        admin: req.body.admin,
+      });
 
-    await User.findOne({ username: user.username }).then(async (foundUser) => {
-      if (!foundUser) {
-        await user.save().then((user) => {
-          return res.status(200).json({
-            success: true,
-            message: `${user.username} saved successfully to DB!`,
-          });
-        });
-      } else {
-        return res.status(200).json({
-          success: false,
-          message: "User already exists ! ",
-        });
-      }
+      await User.findOne({ username: user.username }).then(
+        async (foundUser) => {
+          if (!foundUser) {
+            await user.save().then((user) => {
+              return res.status(200).json({
+                success: true,
+                message: `${user.username} saved successfully to DB!`,
+              });
+            });
+          } else {
+            return res.status(200).json({
+              success: false,
+              message: "User already exists ! ",
+            });
+          }
+        }
+      );
     });
   } catch (error) {
     return res.status(400).json({
@@ -94,18 +101,21 @@ user_router.post("/login", async (req, res) => {
           message: "User not found ! ",
         });
       } else {
-        if (user.username == username && user.password == password) {
-          return res.status(200).json({
-            success: true,
-            message: "User login successfully ! ",
-            user: user,
-          });
-        } else {
-          return res.status(200).json({
-            success: false,
-            message: "Invalid password",
-          });
-        }
+        bcrypt.compare(password, user.password, function (err, result) {
+          // result == true
+          if (user.username == username && result) {
+            return res.status(200).json({
+              success: true,
+              message: "User login successfully ! ",
+              user: user,
+            });
+          } else {
+            return res.status(200).json({
+              success: false,
+              message: "Invalid password",
+            });
+          }
+        });
       }
     });
   } catch (error) {
