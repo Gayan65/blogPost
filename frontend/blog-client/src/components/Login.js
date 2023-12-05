@@ -25,7 +25,6 @@ function Login() {
     await axios
       .post("http://localhost:4000/login", data)
       .then((response) => {
-        console.log(response.data);
         setApiResponse(response.data);
         if (response.data.success) {
           sessionStorage.setItem("user", JSON.stringify(response.data.user));

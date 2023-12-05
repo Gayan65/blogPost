@@ -29,7 +29,6 @@ function UserBlog() {
       axios
         .post("http://localhost:4000/blogs/user", data)
         .then((response) => {
-          console.log(response.data);
           if (response.data.success) {
             setBlogs(response.data.blogs);
           }

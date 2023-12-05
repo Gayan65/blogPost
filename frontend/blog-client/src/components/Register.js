@@ -34,9 +34,7 @@ function Register() {
       .then((response) => {
         if (response.data.success) {
           navigate("/login");
-          console.log(response.data.message);
         } else {
-          console.log(response.data.message);
           setApiResponse(response.data);
         }
       })

@@ -34,9 +34,7 @@ function ViewBlog() {
             setBlog(response.data.blog[0]);
             setBlogUser(response.data.blog[0].user.fname);
             if (response.data.blog[0].comment.length > 0) {
-              // Have to go from here, I think need to implement a map function here to push the data to setComment and then it can be extracted from comment.
               const coms = response.data.blog[0].comment;
-              //console.log(coms);
               setComments(coms);
             }
           });
@@ -49,7 +47,6 @@ function ViewBlog() {
 
   function handleComment(event) {
     event.preventDefault();
-    console.log(content);
     const data = qs.stringify({
       content: content,
       userId: user._id,
@@ -58,7 +55,6 @@ function ViewBlog() {
     axios
       .post("http://localhost:4000/add/comment", data)
       .then((response) => {
-        console.log(response.data);
         window.location.reload(false);
       })
       .catch((error) => console.log(error));

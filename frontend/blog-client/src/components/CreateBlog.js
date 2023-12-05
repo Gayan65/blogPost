@@ -37,7 +37,6 @@ function CreateBlog() {
     await axios
       .post("http://localhost:4000/blog/save", data)
       .then((response) => {
-        console.log(response.data);
         setData(response.data);
       })
       .catch((error) => console.log(error));

@@ -1,5 +1,7 @@
 import express from "express";
 import { User } from "../schemas/User.js";
+import { Blog } from "../schemas/Blog.js";
+import { Comment } from "../schemas/Comment.js";
 import bodyParser from "body-parser";
 
 const user_router = express();
@@ -136,6 +138,19 @@ user_router.get("/profile/:id", async (req, res) => {
       message: error.message,
     });
   }
+});
+
+//Deleting a User
+user_router.delete("/user/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  await User.findByIdAndDelete(id).then((deletedUser) => {
+    if (deletedUser) {
+      return res.status(200).json({
+        success: true,
+        message: "User Deleted successfully !",
+      });
+    }
+  });
 });
 
 export default user_router;

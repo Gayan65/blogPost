@@ -46,7 +46,6 @@ function Blog() {
     await axios
       .delete(`http://localhost:4000/user/blog/${_id}`)
       .then((response) => {
-        console.log(response.data);
         navigate("/user/blogs");
       })
       .catch((error) => {
@@ -65,8 +64,6 @@ function Blog() {
   }
 
   async function handleClickOk() {
-    console.log(titleValue, contentValue);
-
     const data = qs.stringify({
       title: titleValue,
       content: contentValue,
@@ -75,7 +72,6 @@ function Blog() {
     await axios
       .patch(`http://localhost:4000/blog/update/${_id}`, data)
       .then((response) => {
-        console.log(response.data);
         setEditClicked(false);
       })
       .catch((error) => console.log(error));

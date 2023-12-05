@@ -12,7 +12,6 @@ function Blogs() {
       .then((response) => {
         //Edited here
         if (response.data.success) {
-          console.log(response.data.blogs);
           setBlogs(response.data.blogs);
         }
       })
@@ -20,7 +19,7 @@ function Blogs() {
   }, []);
 
   return (
-    <div className="container-fluid body-custom-css">
+    <div className="container-fluid">
       <div className="container mt-5">
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {blogs.map((blog) => (

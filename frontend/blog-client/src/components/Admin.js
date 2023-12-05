@@ -33,7 +33,6 @@ function Admin() {
           .get("http://localhost:4000/blogs/all")
           .then((response) => {
             setBlogs(response.data.blogs);
-            console.log(response.data.blogs);
           })
           .catch((err) => console.log(err));
 
@@ -41,7 +40,6 @@ function Admin() {
           .get("http://localhost:4000/comments/all")
           .then((response) => {
             setComments(response.data.comments);
-            console.log(response.data.comments);
           })
           .catch((err) => console.log(err));
       } else {
@@ -99,6 +97,9 @@ function Admin() {
               aria-controls="collapseOne"
             >
               Users
+              <span className="badge text-bg-secondary mx-3 ">
+                {users.length}
+              </span>
             </button>
           </h2>
           <div
@@ -109,7 +110,7 @@ function Admin() {
             <div className="accordion-body">
               <div className="row">
                 <div className="col-sm-6 mb-3 mb-sm-0">
-                  {users.map((userItem) => {
+                  {users.map((userItem, i) => {
                     return (
                       <div key={userItem._id} className="card my-2 ">
                         <div className="card-body">
@@ -118,9 +119,6 @@ function Admin() {
                             <p>{userItem._id}</p>
                             <p>{userItem.fname}</p>
                           </div>
-                          {userItem.admin === false ? (
-                            <button className="btn btn-primary">Delete</button>
-                          ) : null}
                         </div>
                       </div>
                     );
@@ -141,6 +139,9 @@ function Admin() {
               aria-controls="collapseTwo"
             >
               Blogs
+              <span className="badge text-bg-secondary mx-3 ">
+                {blogs === undefined ? "0" : blogs.length}
+              </span>
             </button>
           </h2>
           <div
@@ -189,6 +190,9 @@ function Admin() {
               aria-controls="collapseThree"
             >
               Comments
+              <span className="badge text-bg-secondary mx-3 ">
+                {comments === undefined ? "0" : comments.length}
+              </span>
             </button>
           </h2>
           <div
