@@ -44,7 +44,7 @@ function Blog() {
 
   async function handleClickDelete() {
     await axios
-      .delete(`http://localhost:4000/user/blog/${_id}`)
+      .delete(`https://yourbestbloggi.onrender.com/user/blog/${_id}`)
       .then((response) => {
         navigate("/user/blogs");
       })
@@ -70,7 +70,7 @@ function Blog() {
     });
 
     await axios
-      .patch(`http://localhost:4000/blog/update/${_id}`, data)
+      .patch(`https://yourbestbloggi.onrender.com/blog/update/${_id}`, data)
       .then((response) => {
         setEditClicked(false);
       })

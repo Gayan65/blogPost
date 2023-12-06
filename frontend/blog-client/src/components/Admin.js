@@ -23,21 +23,21 @@ function Admin() {
         setAuth(true);
         setAdmin(true);
         axios
-          .get("http://localhost:4000/users/all")
+          .get("https://yourbestbloggi.onrender.com/users/all")
           .then((response) => {
             setUsers(response.data.allUsers);
           })
           .catch((err) => console.log(err));
 
         axios
-          .get("http://localhost:4000/blogs/all")
+          .get("https://yourbestbloggi.onrender.com/blogs/all")
           .then((response) => {
             setBlogs(response.data.blogs);
           })
           .catch((err) => console.log(err));
 
         axios
-          .get("http://localhost:4000/comments/all")
+          .get("https://yourbestbloggi.onrender.com/comments/all")
           .then((response) => {
             setComments(response.data.comments);
           })
@@ -53,7 +53,7 @@ function Admin() {
   async function handdleDeleteComment(e) {
     const commentId = e.target.value;
     await axios
-      .delete(`http://localhost:4000/comment/delete/${commentId}`)
+      .delete(`https://yourbestbloggi.onrender.com/comment/delete/${commentId}`)
       .then((response) => {
         window.location.reload(false);
         alert(response.data.message);
@@ -68,7 +68,7 @@ function Admin() {
   async function handdleDeleteBlog(e) {
     const blogId = e.target.value;
     await axios
-      .delete(`http://localhost:4000/user/blog/${blogId}`)
+      .delete(`https://yourbestbloggi.onrender.com/user/blog/${blogId}`)
       .then((response) => {
         window.location.reload(false);
         alert(response.data.message);

@@ -30,7 +30,7 @@ function Register() {
       admin: false,
     });
     await axios
-      .post("http://localhost:4000/user/create", data)
+      .post("https://yourbestbloggi.onrender.com/user/create", data)
       .then((response) => {
         if (response.data.success) {
           navigate("/login");

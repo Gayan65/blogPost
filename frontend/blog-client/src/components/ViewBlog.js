@@ -29,7 +29,7 @@ function ViewBlog() {
       setUserObj(userObj);
       if (state) {
         axios
-          .get(`http://localhost:4000/blog/${state._id}`)
+          .get(`https://yourbestbloggi.onrender.com/blog/${state._id}`)
           .then((response) => {
             setBlog(response.data.blog[0]);
             setBlogUser(response.data.blog[0].user.fname);
@@ -53,7 +53,7 @@ function ViewBlog() {
       blogId: state._id,
     });
     axios
-      .post("http://localhost:4000/add/comment", data)
+      .post("https://yourbestbloggi.onrender.com/add/comment", data)
       .then((response) => {
         window.location.reload(false);
       })

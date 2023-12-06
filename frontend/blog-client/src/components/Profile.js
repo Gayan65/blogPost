@@ -20,7 +20,7 @@ function Profile() {
       const userId = userObj._id;
 
       axios
-        .get(`http://localhost:4000/profile/${userId}`)
+        .get(`https://yourbestbloggi.onrender.com/profile/${userId}`)
         .then((response) => {
           if (response.data.success) {
             setCurrentUser(response.data.user[0]);

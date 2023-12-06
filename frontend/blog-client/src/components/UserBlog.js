@@ -27,7 +27,7 @@ function UserBlog() {
       });
 
       axios
-        .post("http://localhost:4000/blogs/user", data)
+        .post("https://yourbestbloggi.onrender.com/blogs/user", data)
         .then((response) => {
           if (response.data.success) {
             setBlogs(response.data.blogs);

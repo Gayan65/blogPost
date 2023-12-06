@@ -8,7 +8,7 @@ function Blogs() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/blogs/all")
+      .get("https://yourbestbloggi.onrender.com/blogs/all")
       .then((response) => {
         //Edited here
         if (response.data.success) {

@@ -35,7 +35,7 @@ function CreateBlog() {
     });
 
     await axios
-      .post("http://localhost:4000/blog/save", data)
+      .post("https://yourbestbloggi.onrender.com/blog/save", data)
       .then((response) => {
         setData(response.data);
       })
