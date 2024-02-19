@@ -28,6 +28,6 @@ This project is a full-stack web application developed using the MERN (Mongo DB,
 
 ### Installation
 
-1. Clone the repository:
+1. Clone the repository via the test-css branch
 2. npm install for both backend and frontend
 3. set up an .env file for the relevent config
